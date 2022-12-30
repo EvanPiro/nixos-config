@@ -111,9 +111,9 @@
   # Makes SSH terminal faster
   programs.mosh.enable = true;
 
-  programs.bash.shellAliases = {
-    repl = ''nix repl --arg pkgs '(builtins.getFlake "${./.}").inputs.nixpkgs.legacyPackages.x86_64-linux' ${./repl.nix} '';
-  };
+  # programs.bash.shellAliases = {
+  #    repl = ''nix repl --arg pkgs '(builtins.getFlake "${./.}").inputs.nixpkgs.legacyPackages.x86_64-linux' ${./repl.nix} '';
+  # };
 
   networking.firewall.enable = false;
 
