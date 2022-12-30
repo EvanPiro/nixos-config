@@ -10,10 +10,12 @@
     nixpkgs,
     home-manager,
     nixos-hardware,
-  } @ inputs: {
-    formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.alejandra;
+  } @ inputs: let
+    system = "x86_64-linux";
+  in {
+    formatter.${system} = nixpkgs.legacyPackages.${system}.alejandra;
     nixosConfigurations.tower = nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
+      system = system;
       modules = [
         {
           _module.args = {
