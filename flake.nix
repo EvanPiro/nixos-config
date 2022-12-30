@@ -5,7 +5,13 @@
     home-manager.url = github:nix-community/home-manager/release-22.11;
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
-  outputs = { self, nixpkgs, home-manager, nixos-hardware }@inputs: {
+  outputs = {
+    self,
+    nixpkgs,
+    home-manager,
+    nixos-hardware,
+  } @ inputs: {
+    formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.alejandra;
     nixosConfigurations.tower = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules = [
@@ -18,7 +24,7 @@
         nixos-hardware.nixosModules.common-cpu-amd
         nixos-hardware.nixosModules.common-gpu-amd
         home-manager.nixosModules.home-manager
-        ({ ... }: {
+        ({...}: {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
           home-manager.users.evan = {
@@ -31,5 +37,3 @@
     };
   };
 }
-
-
