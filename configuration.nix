@@ -80,11 +80,7 @@
     git
     vscode
     cachix
-    nodejs
-    jq
     htop
-    docker
-    nodePackages.http-server
     unzip
     gotop
     mosh
