@@ -65,7 +65,7 @@
   users.users.evan = {
     isNormalUser = true;
     initialPassword = "p123";
-    extraGroups = ["wheel" "docker"]; # Enable ‘sudo’ for the user.
+    extraGroups = ["wheel"]; # Enable ‘sudo’ for the user.
   };
 
   # List packages installed in system profile. To search, run:
@@ -90,8 +90,6 @@
   ];
   environment.variables.EDITOR = "vim";
   programs.neovim.defaultEditor = true;
-
-  virtualisation.docker.enable = true;
 
   programs.gnupg.agent = {
     enable = true;
