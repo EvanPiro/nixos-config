@@ -1,10 +1,27 @@
 {
   config,
   pkgs,
+  lib,
   inputs,
   ...
 }: {
   nixpkgs.config.allowUnfree = true;
+  nixpkgs.config.allowUnfreePredicate = pkg:
+    builtins.elem (lib.getName pkg) [
+      "steam"
+      "steam-original"
+      "steam-runtime"
+    ];
+
+  nixpkgs.config.packageOverrides = pkgs: {
+    steam = pkgs.steam.override {
+      extraPkgs = pkgs:
+        with pkgs; [
+          libgdiplus
+        ];
+    };
+  };
+
   nix = {
     extraOptions = ''
       experimental-features = nix-command flakes
@@ -87,13 +104,46 @@
     ranger
     tmate
     graphviz
+    steam-run
+    (steam.override {
+      withPrimus = true;
+      extraPkgs = pkgs: [bumblebee glxinfo];
+    })
+    .run
+    (steam.override {withJava = true;})
   ];
   environment.variables.EDITOR = "vim";
-  programs.neovim.defaultEditor = true;
 
-  programs.gnupg.agent = {
-    enable = true;
-    enableSSHSupport = true;
+  environment.sessionVariables = rec {
+    XDG_CACHE_HOME = "\${HOME}/.cache";
+    XDG_CONFIG_HOME = "\${HOME}/.config";
+    XDG_BIN_HOME = "\${HOME}/.local/bin";
+    XDG_DATA_HOME = "\${HOME}/.local/share";
+    # Steam needs this to find Proton-GE
+    STEAM_EXTRA_COMPAT_TOOLS_PATHS = "\${HOME}/.steam/root/compatibilitytools.d";
+    # note: this doesn't replace PATH, it just adds this to it
+    PATH = [
+      "\${XDG_BIN_HOME}"
+    ];
+  };
+
+  programs = {
+    gnupg.agent = {
+      enable = true;
+      enableSSHSupport = true;
+    };
+    neovim.defaultEditor = true;
+
+    # Makes SSH terminal faster
+    mosh.enable = true;
+
+    steam = {
+      enable = true;
+      remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
+      dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
+    };
+
+    java.enable = true;
   };
 
   # List services that you want to enable:
@@ -101,9 +151,6 @@
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
-
-  # Makes SSH terminal faster
-  programs.mosh.enable = true;
 
   programs.bash.shellAliases = {
     repl = ''nix repl --arg pkgs '(builtins.getFlake "${./.}").inputs.nixpkgs.legacyPackages.x86_64-linux' ${./repl.nix} '';
