@@ -152,10 +152,6 @@
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
 
-  programs.bash.shellAliases = {
-    repl = ''nix repl --arg pkgs '(builtins.getFlake "${./.}").inputs.nixpkgs.legacyPackages.x86_64-linux' ${./repl.nix} '';
-  };
-
   networking.firewall.enable = false;
 
   # This value determines the NixOS release from which the default

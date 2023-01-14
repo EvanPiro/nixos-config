@@ -1,7 +1,7 @@
 {
   inputs = {
     nixos-hardware.url = "github:nixos/nixos-hardware";
-    nixpkgs.url = "github:EvanPiro/nixpkgs?rev=974474eb7d95a7caddc37eec2346ea96cb930913";
+    nixpkgs.url = "github:EvanPiro/nixpkgs";
     home-manager.url = github:nix-community/home-manager/release-22.11;
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
