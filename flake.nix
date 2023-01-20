@@ -1,7 +1,8 @@
 {
   inputs = {
     nixos-hardware.url = "github:nixos/nixos-hardware";
-    nixpkgs.url = "github:EvanPiro/nixpkgs";
+    nixpkgs.url = "github:EvanPiro/nixpkgs/signage";
+    md.url = "github:EvanPiro/md";
     home-manager.url = github:nix-community/home-manager/release-22.11;
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
@@ -10,16 +11,18 @@
     nixpkgs,
     home-manager,
     nixos-hardware,
+    md,
   } @ inputs: let
     system = "x86_64-linux";
   in {
     formatter.${system} = nixpkgs.legacyPackages.${system}.alejandra;
     nixosConfigurations.tower = nixpkgs.lib.nixosSystem {
-      system = system;
+      inherit system;
       modules = [
         {
           _module.args = {
             inherit inputs;
+            md = md.packages.${system}.default;
           };
         }
         ./configuration.nix

@@ -3,6 +3,7 @@
   pkgs,
   lib,
   inputs,
+  md,
   ...
 }: {
   nixpkgs.config.allowUnfree = true;
@@ -105,6 +106,11 @@
     tmate
     graphviz
     steam-run
+    rustc
+    gcc
+    cargo
+    tdesktop
+    md
     (steam.override {
       withPrimus = true;
       extraPkgs = pkgs: [bumblebee glxinfo];
