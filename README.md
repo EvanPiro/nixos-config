@@ -4,4 +4,4 @@ This repo contains the full configuration of the system I use for most of my dev
 
 ## Usage Instructions
 
-After pulling this onto your system, run `./rebuild`. This script will rebuild your NixOS system with this configuration.
+After pulling this onto your system, run `./rebuild.sh`. This script will rebuild your NixOS system with this configuration.
