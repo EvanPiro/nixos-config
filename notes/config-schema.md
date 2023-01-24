@@ -8,7 +8,7 @@ swapDevices
 imports
 boot
   loader
-	kernalPackages
+  kernalPackages
 networking
 systemd
 time
@@ -18,8 +18,8 @@ hardware
 users
 environment
   systemPackages
-	variables
-	sessionVariables
+  variables
+  sessionVariables
 programs
 system
 ```
