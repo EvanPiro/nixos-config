@@ -1,4 +1,4 @@
-# Schema of `configuration.nix`
+# Structure of my `configuration.nix`
 
 ```
 nixpkgs
