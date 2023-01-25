@@ -72,11 +72,11 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1674066209,
-        "narHash": "sha256-IDT+GPfX0TPwAvitbcAn/nx3OIvFvD4ZzXEuHxqUZm4=",
+        "lastModified": 1674135595,
+        "narHash": "sha256-Zl8sL98ppLybjmPIGhH1EUA/3zdzVHJQo+G79ZOK8hM=",
         "owner": "EvanPiro",
         "repo": "nixpkgs",
-        "rev": "001d874960f64908e7a55856c6bcaafec53c1950",
+        "rev": "62e3c7b90f6049dcdebd945d69654b23cfe71a52",
         "type": "github"
       },
       "original": {

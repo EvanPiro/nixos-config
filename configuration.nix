@@ -74,6 +74,20 @@
     };
     tailscale.enable = true;
     openssh.enable = true;
+    postgresql = {
+      enable = true;
+      package = pkgs.postgresql;
+      ensureDatabases = ["mydb"];
+      ensureUsers = [
+        {
+          name = "evan";
+          ensurePermissions = {
+            "DATABASE mydb" = "ALL PRIVILEGES";
+          };
+        }
+      ];
+      extraPlugins = [pkgs.pgtap];
+    };
   };
 
   # Enable sound.
@@ -89,7 +103,9 @@
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  environment.systemPackages = with pkgs; [
+  environment.systemPackages = with pkgs; let
+    pgprove = perlPackages.TAPParserSourceHandlerpgTAP;
+  in [
     neovim
     wget
     google-chrome
@@ -112,6 +128,7 @@
     cargo
     tdesktop
     md
+    pgprove
     (steam.override {
       withPrimus = true;
       extraPkgs = pkgs: [bumblebee glxinfo];

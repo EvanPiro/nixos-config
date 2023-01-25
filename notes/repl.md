@@ -19,3 +19,8 @@ To find out a function's arguments, with the result telling you if each attribut
 ```
 nix-repl> builtins.functionArgs stdenv.mkDerivation
 ```
+
+To load a flake that is in the current directory:
+```
+nix-repl> :lf ./
+```
