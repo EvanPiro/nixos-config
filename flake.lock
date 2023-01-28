@@ -72,16 +72,16 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1674135595,
-        "narHash": "sha256-Zl8sL98ppLybjmPIGhH1EUA/3zdzVHJQo+G79ZOK8hM=",
+        "lastModified": 1674609682,
+        "narHash": "sha256-2v6csc5QVlCmsBBcu5atjXdgWHVuKexCwHogjPjrUOQ=",
         "owner": "EvanPiro",
         "repo": "nixpkgs",
-        "rev": "62e3c7b90f6049dcdebd945d69654b23cfe71a52",
+        "rev": "bea90a5736a9b93fdf43dc8bd5d5236b3a18eee6",
         "type": "github"
       },
       "original": {
         "owner": "EvanPiro",
-        "ref": "signage",
+        "ref": "postgrest",
         "repo": "nixpkgs",
         "type": "github"
       }
