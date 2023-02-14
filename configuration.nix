@@ -147,6 +147,7 @@
     tdesktop
     md
     tdesktop
+    tmux
     (steam.override {
       withPrimus = true;
       extraPkgs = pkgs: [bumblebee glxinfo];
