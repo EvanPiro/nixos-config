@@ -3,7 +3,7 @@
   pkgs,
   lib,
   inputs,
-  md,
+  mypkgs,
   ...
 }: {
   nixpkgs = {
@@ -27,6 +27,9 @@
   };
 
   nix = {
+    nixPath = ["nixpkgs=${inputs.nixpkgs}"];
+    registry.nixpkgs.flake = inputs.nixpkgs;
+
     extraOptions = ''
       experimental-features = nix-command flakes
     '';
@@ -124,6 +127,8 @@
   environment.systemPackages = with pkgs; let
     pgprove = perlPackages.TAPParserSourceHandlerpgTAP;
   in [
+    mypkgs.md
+    mypkgs.gr
     neovim
     wget
     google-chrome
@@ -145,9 +150,10 @@
     gcc
     cargo
     tdesktop
-    md
-    tdesktop
     tmux
+    go
+    alsa-lib
+    alsaLib
     (steam.override {
       withPrimus = true;
       extraPkgs = pkgs: [bumblebee glxinfo];

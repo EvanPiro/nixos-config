@@ -22,21 +22,21 @@
         "type": "github"
       }
     },
-    "md": {
+    "mypkgs": {
       "inputs": {
         "nixpkgs": "nixpkgs"
       },
       "locked": {
-        "lastModified": 1674248652,
-        "narHash": "sha256-w2pCk94Ci+hPsvZP22gXcJMuPEFb+5OgWabDcoI/G00=",
+        "lastModified": 1676556837,
+        "narHash": "sha256-NJGDaIHT6FmrrYcBNQqq2eZT20/o25e5Lrh4RtW410s=",
         "owner": "EvanPiro",
-        "repo": "md",
-        "rev": "3e4de4449d586a3a6e217aa26d7551a6d6aad44a",
+        "repo": "mypkgs",
+        "rev": "12638d83d1444bcd26a29bf05539e73a8befc628",
         "type": "github"
       },
       "original": {
         "owner": "EvanPiro",
-        "repo": "md",
+        "repo": "mypkgs",
         "type": "github"
       }
     },
@@ -89,7 +89,7 @@
     "root": {
       "inputs": {
         "home-manager": "home-manager",
-        "md": "md",
+        "mypkgs": "mypkgs",
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs_2"
       }

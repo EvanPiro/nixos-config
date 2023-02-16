@@ -2,7 +2,7 @@
   inputs = {
     nixos-hardware.url = "github:nixos/nixos-hardware";
     nixpkgs.url = "github:EvanPiro/nixpkgs/postgrest";
-    md.url = "github:EvanPiro/md";
+    mypkgs.url = "github:EvanPiro/mypkgs";
     home-manager.url = github:nix-community/home-manager/release-22.11;
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
@@ -11,7 +11,7 @@
     nixpkgs,
     home-manager,
     nixos-hardware,
-    md,
+    mypkgs,
   } @ inputs: let
     system = "x86_64-linux";
   in {
@@ -22,7 +22,7 @@
         {
           _module.args = {
             inherit inputs;
-            md = md.packages.${system}.default;
+            mypkgs = mypkgs.packages.${system};
           };
         }
         ./configuration.nix
