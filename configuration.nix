@@ -152,8 +152,7 @@
     tdesktop
     tmux
     go
-    alsa-lib
-    alsaLib
+    gdb
     (steam.override {
       withPrimus = true;
       extraPkgs = pkgs: [bumblebee glxinfo];
