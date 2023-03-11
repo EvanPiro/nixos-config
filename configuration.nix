@@ -9,12 +9,6 @@
   nixpkgs = {
     config = {
       allowUnfree = true;
-      allowUnfreePredicate = pkg:
-        builtins.elem (lib.getName pkg) [
-          "steam"
-          "steam-original"
-          "steam-runtime"
-        ];
       packageOverrides = pkgs: {
         steam = pkgs.steam.override {
           extraPkgs = pkgs:
@@ -123,12 +117,6 @@
     gdb
     ncdu
     ctags
-    (steam.override {
-      withPrimus = true;
-      extraPkgs = pkgs: [bumblebee glxinfo];
-    })
-    .run
-    (steam.override {withJava = true;})
   ];
   environment.variables.EDITOR = "vim";
 
@@ -138,7 +126,6 @@
     XDG_BIN_HOME = "\${HOME}/.local/bin";
     XDG_DATA_HOME = "\${HOME}/.local/share";
     # Steam needs this to find Proton-GE
-    STEAM_EXTRA_COMPAT_TOOLS_PATHS = "\${HOME}/.steam/root/compatibilitytools.d";
     # note: this doesn't replace PATH, it just adds this to it
     PATH = [
       "\${XDG_BIN_HOME}"
