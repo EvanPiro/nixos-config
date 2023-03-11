@@ -144,6 +144,7 @@ autocmd FileType nix set expandtab
 autocmd FileType c set expandtab
 "why not c too?
 autocmd FileType purescript set expandtab
+autocmd FileType md set expandtab
 
 
 let g:airline#extensions#tabline#enabled = 1
@@ -208,3 +209,5 @@ command Fmt silent! !./bin/format
 autocmd VimEnter * silent !rm Session.vim
 
 let g:purescript_disable_indent = 1
+
+set tags=./tags;

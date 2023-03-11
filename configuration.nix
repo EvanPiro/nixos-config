@@ -77,38 +77,6 @@
     };
     tailscale.enable = true;
     openssh.enable = true;
-    postgresql = {
-      enable = true;
-      package = pkgs.postgresql_14;
-      enableTCPIP = true;
-      # ensureDatabases = ["mydb"];
-      authentication = pkgs.lib.mkOverride 14 ''
-        local all all trust
-        host all all 127.0.0.1/32 trust
-        host all all ::1/128 trust
-      '';
-      initialScript = pkgs.writeText "backend-initScript" ''
-        create schema api;
-        create table api.todos (
-          id serial primary key,
-          done boolean not null default false,
-          task text not null,
-          due timestamptz
-        );
-        create role web_anon nologin;
-        grant usage on schema api to web_anon;
-        grant select on api.todos to web_anon;
-        create role authenticator noinherit login password 'mysecretpassword';
-        grant web_anon to authenticator;
-      '';
-      extraPlugins = [pkgs.pgtap];
-    };
-    postgrest = {
-      enable = true;
-      dbURI = "postgres://authenticator:mysecretpassword@localhost:5432/postgres";
-      anonRole = "web_anon";
-      postgresSchema = "api";
-    };
   };
 
   # Enable sound.
@@ -153,6 +121,8 @@
     tmux
     go
     gdb
+    ncdu
+    ctags
     (steam.override {
       withPrimus = true;
       extraPkgs = pkgs: [bumblebee glxinfo];
