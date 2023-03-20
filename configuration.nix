@@ -50,7 +50,10 @@
 
   boot = {
     loader = {
-      systemd-boot.enable = true;
+      systemd-boot = {
+        enable = true;
+        configurationLimit = 7;
+      };
       efi.canTouchEfiVariables = true;
     };
     kernelPackages = pkgs.linuxPackages_latest;
@@ -69,6 +72,7 @@
   time.timeZone = "America/New_York";
 
   services = {
+    fluidsynth.enable = true;
     xserver = {
       enable = true;
       displayManager.gdm.enable = true;
@@ -79,6 +83,8 @@
     openssh.enable = true;
   };
 
+  virtualisation.docker.enable = true;
+
   # Enable sound.
   sound.enable = true;
   hardware.pulseaudio.enable = true;
@@ -87,8 +93,10 @@
   users.users.evan = {
     isNormalUser = true;
     initialPassword = "p123";
-    extraGroups = ["wheel"]; # Enable ‘sudo’ for the user.
+    extraGroups = ["wheel" "docker"]; # Enable ‘sudo’ for the user.
   };
+
+  users.extraGroups.docker.members = [ "evan" ];
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
@@ -123,6 +131,9 @@
     gdb
     ncdu
     ctags
+    vlc
+    rustup
+    audacity
     (steam.override {
       withPrimus = true;
       extraPkgs = pkgs: [bumblebee glxinfo];
@@ -162,6 +173,11 @@
     };
 
     java.enable = true;
+  };
+
+  zramSwap = {
+    enable = true;
+    algorithm = "zstd";
   };
 
   # This value determines the NixOS release from which the default
