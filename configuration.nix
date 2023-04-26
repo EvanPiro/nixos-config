@@ -72,7 +72,6 @@
   time.timeZone = "America/New_York";
 
   services = {
-    fluidsynth.enable = true;
     xserver = {
       enable = true;
       displayManager.gdm.enable = true;
@@ -81,7 +80,16 @@
     };
     tailscale.enable = true;
     openssh.enable = true;
+    nginx.enable = true;
+    nginx.virtualHosts."signdb.com" = {
+      addSSL = true;
+      enableACME = true;
+      root = "/var/www/signdb.com";
+    };
   };
+
+  security.acme.acceptTerms = true;
+
 
   virtualisation.docker.enable = true;
 
@@ -134,6 +142,7 @@
     vlc
     rustup
     audacity
+    unity3d
     (steam.override {
       withPrimus = true;
       extraPkgs = pkgs: [bumblebee glxinfo];
