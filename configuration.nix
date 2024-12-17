@@ -80,12 +80,6 @@
     };
     tailscale.enable = true;
     openssh.enable = true;
-    nginx.enable = true;
-    nginx.virtualHosts."signdb.com" = {
-      addSSL = true;
-      enableACME = true;
-      root = "/var/www/signdb.com";
-    };
   };
 
   security.acme.acceptTerms = true;
@@ -111,8 +105,6 @@
   environment.systemPackages = with pkgs; let
     pgprove = perlPackages.TAPParserSourceHandlerpgTAP;
   in [
-    mypkgs.md
-    mypkgs.gr
     neovim
     wget
     google-chrome
@@ -135,14 +127,11 @@
     cargo
     tdesktop
     tmux
-    go
     gdb
     ncdu
     ctags
     vlc
     rustup
-    audacity
-    unity3d
     (steam.override {
       withPrimus = true;
       extraPkgs = pkgs: [bumblebee glxinfo];
