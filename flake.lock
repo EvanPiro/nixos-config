@@ -23,20 +23,18 @@
       }
     },
     "mypkgs": {
-      "inputs": {
-        "nixpkgs": "nixpkgs"
-      },
       "locked": {
-        "lastModified": 1676557764,
-        "narHash": "sha256-Eosq5SOUTcsQ2v3XDaa2E/CeaUWdCcxxNFMV7hmemzM=",
-        "owner": "EvanPiro",
-        "repo": "mypkgs",
-        "rev": "12cdedfacff5fca9ea6277c8c8e96ebb9143b402",
+        "lastModified": 1734119587,
+        "narHash": "sha256-AKU6qqskl0yf2+JdRdD0cfxX4b9x3KKV5RqA6wijmPM=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "3566ab7246670a43abd2ffa913cc62dad9cdf7d5",
         "type": "github"
       },
       "original": {
-        "owner": "EvanPiro",
-        "repo": "mypkgs",
+        "owner": "NixOS",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
         "type": "github"
       }
     },
@@ -57,21 +55,6 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1671564233,
-        "narHash": "sha256-O6wJwFMgpx2WPgz8ihbYxRGvsuTU64QhFkXt7vJgWe0=",
-        "owner": "EvanPiro",
-        "repo": "nixpkgs",
-        "rev": "5ddd3c9fe322c34710a7b6dcd1653c4555230970",
-        "type": "github"
-      },
-      "original": {
-        "owner": "EvanPiro",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
-    "nixpkgs_2": {
-      "locked": {
         "lastModified": 1679423536,
         "narHash": "sha256-Yv2wji9kVc6J7A0UJAMYmi2AE9Hd4NyJUmLXBwSGuEs=",
         "owner": "EvanPiro",
@@ -91,7 +74,7 @@
         "home-manager": "home-manager",
         "mypkgs": "mypkgs",
         "nixos-hardware": "nixos-hardware",
-        "nixpkgs": "nixpkgs_2"
+        "nixpkgs": "nixpkgs"
       }
     },
     "utils": {

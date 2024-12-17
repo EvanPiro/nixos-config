@@ -2,7 +2,7 @@
   inputs = {
     nixos-hardware.url = "github:nixos/nixos-hardware";
     nixpkgs.url = "github:EvanPiro/nixpkgs/postgrest";
-    mypkgs.url = "github:EvanPiro/mypkgs";
+    mypkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     home-manager.url = github:nix-community/home-manager/release-22.11;
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
