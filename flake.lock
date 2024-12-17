@@ -23,18 +23,20 @@
       }
     },
     "mypkgs": {
+      "inputs": {
+        "nixpkgs": "nixpkgs"
+      },
       "locked": {
-        "lastModified": 1734119587,
-        "narHash": "sha256-AKU6qqskl0yf2+JdRdD0cfxX4b9x3KKV5RqA6wijmPM=",
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "3566ab7246670a43abd2ffa913cc62dad9cdf7d5",
+        "lastModified": 1676557764,
+        "narHash": "sha256-Eosq5SOUTcsQ2v3XDaa2E/CeaUWdCcxxNFMV7hmemzM=",
+        "owner": "EvanPiro",
+        "repo": "mypkgs",
+        "rev": "12cdedfacff5fca9ea6277c8c8e96ebb9143b402",
         "type": "github"
       },
       "original": {
-        "owner": "NixOS",
-        "ref": "nixos-unstable",
-        "repo": "nixpkgs",
+        "owner": "EvanPiro",
+        "repo": "mypkgs",
         "type": "github"
       }
     },
@@ -55,16 +57,30 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1679423536,
-        "narHash": "sha256-Yv2wji9kVc6J7A0UJAMYmi2AE9Hd4NyJUmLXBwSGuEs=",
+        "lastModified": 1671564233,
+        "narHash": "sha256-O6wJwFMgpx2WPgz8ihbYxRGvsuTU64QhFkXt7vJgWe0=",
         "owner": "EvanPiro",
         "repo": "nixpkgs",
-        "rev": "41692d0aa73fab8d0889f508bd55d46ecd6ab46b",
+        "rev": "5ddd3c9fe322c34710a7b6dcd1653c4555230970",
         "type": "github"
       },
       "original": {
         "owner": "EvanPiro",
-        "ref": "postgrest",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs_2": {
+      "locked": {
+        "lastModified": 1734465745,
+        "narHash": "sha256-J/9iQ8gMQacmXp23I4YBF8sldP94CDBJNb+CZEevqFc=",
+        "owner": "EvanPiro",
+        "repo": "nixpkgs",
+        "rev": "d2c749a0785b36648c86403bd27a28af61ef400f",
+        "type": "github"
+      },
+      "original": {
+        "owner": "EvanPiro",
         "repo": "nixpkgs",
         "type": "github"
       }
@@ -74,7 +90,7 @@
         "home-manager": "home-manager",
         "mypkgs": "mypkgs",
         "nixos-hardware": "nixos-hardware",
-        "nixpkgs": "nixpkgs"
+        "nixpkgs": "nixpkgs_2"
       }
     },
     "utils": {
