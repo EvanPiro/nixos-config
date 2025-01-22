@@ -4,20 +4,19 @@
       "inputs": {
         "nixpkgs": [
           "nixpkgs"
-        ],
-        "utils": "utils"
+        ]
       },
       "locked": {
-        "lastModified": 1670253003,
-        "narHash": "sha256-/tJIy4+FbsQyslq1ipyicZ2psOEd8dvl4OJ9lfisjd0=",
+        "lastModified": 1716729631,
+        "narHash": "sha256-IerjU5GUeKc0eW9FPOdlPveSGJ2ZrO+lIfuHPUmUF2I=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "0e8125916b420e41bf0d23a0aa33fadd0328beb3",
+        "rev": "fc4492181833eaaa7a26a8081c0615d95792d825",
         "type": "github"
       },
       "original": {
         "owner": "nix-community",
-        "ref": "release-22.11",
+        "ref": "release-23.05",
         "repo": "home-manager",
         "type": "github"
       }
@@ -27,11 +26,11 @@
         "nixpkgs": "nixpkgs"
       },
       "locked": {
-        "lastModified": 1676556837,
-        "narHash": "sha256-NJGDaIHT6FmrrYcBNQqq2eZT20/o25e5Lrh4RtW410s=",
+        "lastModified": 1676557764,
+        "narHash": "sha256-Eosq5SOUTcsQ2v3XDaa2E/CeaUWdCcxxNFMV7hmemzM=",
         "owner": "EvanPiro",
         "repo": "mypkgs",
-        "rev": "12638d83d1444bcd26a29bf05539e73a8befc628",
+        "rev": "12cdedfacff5fca9ea6277c8c8e96ebb9143b402",
         "type": "github"
       },
       "original": {
@@ -42,11 +41,11 @@
     },
     "nixos-hardware": {
       "locked": {
-        "lastModified": 1678397099,
-        "narHash": "sha256-5xq8YJe+h19TlD+EI4AE/3H3jcCcQ2AWU6CWBVc5tRc=",
+        "lastModified": 1737578558,
+        "narHash": "sha256-fOncumCxJ3YudFTGkp60yZ/GikmgDqunxYhQFmpN6Po=",
         "owner": "nixos",
         "repo": "nixos-hardware",
-        "rev": "556101ff85bd6e20900ec73ee525b935154bc8ea",
+        "rev": "5f052b26634916036d20ee92e2819db0fb7d2d87",
         "type": "github"
       },
       "original": {
@@ -72,16 +71,16 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1674609682,
-        "narHash": "sha256-2v6csc5QVlCmsBBcu5atjXdgWHVuKexCwHogjPjrUOQ=",
-        "owner": "EvanPiro",
+        "lastModified": 1685566663,
+        "narHash": "sha256-btHN1czJ6rzteeCuE/PNrdssqYD2nIA4w48miQAFloM=",
+        "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "bea90a5736a9b93fdf43dc8bd5d5236b3a18eee6",
+        "rev": "4ecab3273592f27479a583fb6d975d4aba3486fe",
         "type": "github"
       },
       "original": {
-        "owner": "EvanPiro",
-        "ref": "postgrest",
+        "owner": "NixOS",
+        "ref": "23.05",
         "repo": "nixpkgs",
         "type": "github"
       }
@@ -92,21 +91,6 @@
         "mypkgs": "mypkgs",
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs_2"
-      }
-    },
-    "utils": {
-      "locked": {
-        "lastModified": 1667395993,
-        "narHash": "sha256-nuEHfE/LcWyuSWnS8t12N1wc105Qtau+/OdUAjtQ0rA=",
-        "owner": "numtide",
-        "repo": "flake-utils",
-        "rev": "5aed5285a952e0b949eb3ba02c12fa4fcfef535f",
-        "type": "github"
-      },
-      "original": {
-        "owner": "numtide",
-        "repo": "flake-utils",
-        "type": "github"
       }
     }
   },

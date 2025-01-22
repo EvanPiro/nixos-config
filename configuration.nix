@@ -8,23 +8,16 @@
 }: {
   nixpkgs = {
     config = {
+      allowBroken = true;
       allowUnfree = true;
-      allowUnfreePredicate = pkg:
-        builtins.elem (lib.getName pkg) [
-          "steam"
-          "steam-original"
-          "steam-runtime"
-        ];
-      packageOverrides = pkgs: {
-        steam = pkgs.steam.override {
-          extraPkgs = pkgs:
-            with pkgs; [
-              libgdiplus
-            ];
-        };
-      };
     };
   };
+
+  nixpkgs.overlays = [
+    (self: super: {
+      fcitx-engines = pkgs.fcitx5;
+    })
+  ];
 
   nix = {
     nixPath = ["nixpkgs=${inputs.nixpkgs}"];
@@ -72,7 +65,6 @@
   time.timeZone = "America/New_York";
 
   services = {
-    fluidsynth.enable = true;
     xserver = {
       enable = true;
       displayManager.gdm.enable = true;
@@ -103,12 +95,11 @@
   environment.systemPackages = with pkgs; let
     pgprove = perlPackages.TAPParserSourceHandlerpgTAP;
   in [
-    mypkgs.md
-    mypkgs.gr
     neovim
     wget
-    google-chrome
-    chromium
+    # google-chrome
+    # chromium
+    opera
     nano
     mattermost-desktop
     git
@@ -117,31 +108,18 @@
     htop
     unzip
     gotop
-    mosh
     ranger
     tmate
-    graphviz
-    steam-run
-    rustc
     gcc
     cargo
     tdesktop
     tmux
     go
-    gdb
     ncdu
-    ctags
     vlc
-    rustup
     audacity
-    (steam.override {
-      withPrimus = true;
-      extraPkgs = pkgs: [bumblebee glxinfo];
-    })
-    .run
-    (steam.override {withJava = true;})
   ];
-  environment.variables.EDITOR = "vim";
+  environment.variables.EDITOR = "nvim";
 
   environment.sessionVariables = rec {
     XDG_CACHE_HOME = "\${HOME}/.cache";
@@ -165,12 +143,6 @@
 
     # Makes SSH terminal faster
     mosh.enable = true;
-
-    steam = {
-      enable = true;
-      remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
-      dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
-    };
 
     java.enable = true;
   };
