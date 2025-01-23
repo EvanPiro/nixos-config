@@ -4,6 +4,7 @@
   lib,
   inputs,
   mypkgs,
+  nixvim,
   ...
 }: {
   nixpkgs = {
@@ -61,7 +62,6 @@
 
   systemd.services.NetworkManager-wait-online.enable = false;
 
-  # Set your time zone.
   time.timeZone = "America/New_York";
 
   services = {
@@ -77,10 +77,6 @@
 
   virtualisation.docker.enable = true;
 
-  # Enable sound.
-#  hardware.pulseaudio.enable = true;
-
-  # Define a user account.
   users.users.evan = {
     isNormalUser = true;
     initialPassword = "p123";
@@ -94,11 +90,9 @@
   environment.systemPackages = with pkgs; let
     pgprove = perlPackages.TAPParserSourceHandlerpgTAP;
   in [
-    neovim
     wget
-    # google-chrome
-    # chromium
-    opera
+    nixvim
+    firefox
     nano
     mattermost-desktop
     git
@@ -125,9 +119,6 @@
     XDG_CONFIG_HOME = "\${HOME}/.config";
     XDG_BIN_HOME = "\${HOME}/.local/bin";
     XDG_DATA_HOME = "\${HOME}/.local/share";
-    # Steam needs this to find Proton-GE
-    STEAM_EXTRA_COMPAT_TOOLS_PATHS = "\${HOME}/.steam/root/compatibilitytools.d";
-    # note: this doesn't replace PATH, it just adds this to it
     PATH = [
       "\${XDG_BIN_HOME}"
     ];
@@ -139,10 +130,6 @@
       enableSSHSupport = true;
     };
     neovim.defaultEditor = true;
-
-    # Makes SSH terminal faster
-    mosh.enable = true;
-
     java.enable = true;
   };
 

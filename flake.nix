@@ -3,6 +3,7 @@
     nixos-hardware.url = "github:nixos/nixos-hardware";
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     mypkgs.url = "github:EvanPiro/mypkgs";
+    nixvim.url = "github:EvanPiro/nixvim";
     home-manager.url = github:nix-community/home-manager;
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
@@ -12,6 +13,7 @@
     home-manager,
     nixos-hardware,
     mypkgs,
+    nixvim
   } @ inputs: let
     system = "x86_64-linux";
   in {
@@ -23,6 +25,7 @@
           _module.args = {
             inherit inputs;
             mypkgs = mypkgs.packages.${system};
+            nixvim = nixvim.packages.${system}.default;
           };
         }
         ./configuration.nix
