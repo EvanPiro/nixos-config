@@ -1,9 +1,9 @@
 {
   inputs = {
     nixos-hardware.url = "github:nixos/nixos-hardware";
-    nixpkgs.url = "github:NixOS/nixpkgs/23.05";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     mypkgs.url = "github:EvanPiro/mypkgs";
-    home-manager.url = github:nix-community/home-manager/release-23.05;
+    home-manager.url = github:nix-community/home-manager;
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
   outputs = {

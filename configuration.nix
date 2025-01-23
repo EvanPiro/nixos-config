@@ -78,8 +78,7 @@
   virtualisation.docker.enable = true;
 
   # Enable sound.
-  sound.enable = true;
-  hardware.pulseaudio.enable = true;
+#  hardware.pulseaudio.enable = true;
 
   # Define a user account.
   users.users.evan = {
