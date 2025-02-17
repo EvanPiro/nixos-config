@@ -9,4 +9,10 @@
 
   home.sessionVariables.EDITOR = "vim";
   programs.bash.sessionVariables.EDITOR = "vim";
+  programs.bash = {
+    enable = true;
+    shellAliases = {
+      d = "nix develop";
+    };
+  };
 }
