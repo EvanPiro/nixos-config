@@ -7,6 +7,19 @@
   nixvim,
   ...
 }: {
+
+  /*
+  hardware.graphics.enable = true;
+
+  services.xserver.videoDrivers = [ "nvidia" ];
+  hardware.nvidia.open = true; # Set to false to use the proprietary kernel module
+
+  hardware.nvidia.prime = {
+    nvidiaBusId = "PCI:1:0:0";
+    amdgpuBusId = "PCI:13:0:0"; # If you have an AMD iGPU
+  };
+  */
+
   nixpkgs = {
     config = {
       allowBroken = true;

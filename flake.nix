@@ -30,7 +30,7 @@
         }
         ./configuration.nix
         nixos-hardware.nixosModules.common-cpu-amd
-#        nixos-hardware.nixosModules.common-gpu-amd
+        nixos-hardware.nixosModules.common-gpu-amd
 #        nixos-hardware.nixosModules.common-gpu-nvidia-nonprime
         home-manager.nixosModules.home-manager
         ({...}: {
