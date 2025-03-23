@@ -7,18 +7,30 @@
   nixvim,
   ...
 }: {
-
-  /*
-  hardware.graphics.enable = true;
-
-  services.xserver.videoDrivers = [ "nvidia" ];
-  hardware.nvidia.open = true; # Set to false to use the proprietary kernel module
-
-  hardware.nvidia.prime = {
-    nvidiaBusId = "PCI:1:0:0";
-    amdgpuBusId = "PCI:13:0:0"; # If you have an AMD iGPU
+  services.xserver = {
+    videoDrivers = ["nvidia" "amdgpu"]; # Both AMD and Nvidia drivers
   };
-  */
+
+  hardware.opengl = {
+    enable = true;
+    driSupport32Bit = true;
+
+    extraPackages = with pkgs; [
+      rocmPackages.clr.icd # If you want AMD ROCm support (optional)
+      amdvlk                 # AMD Vulkan driver
+    ];
+
+    extraPackages32 = with pkgs.pkgsi686Linux; [
+      driversi686Linux.amdvlk # 32-bit AMD Vulkan driver, optional but recommended
+    ];
+  };
+
+  hardware.nvidia = {
+    modesetting.enable = true;
+    powerManagement.enable = true;
+    open = false; # or true if you prefer the open-source variant
+    package = config.boot.kernelPackages.nvidiaPackages.stable;
+  };
 
   nixpkgs = {
     config = {
@@ -107,23 +119,22 @@
     nixvim
     firefox
     nano
-    mattermost-desktop
     git
     vscode
     cachix
     htop
     unzip
     gotop
-    ranger
     tmate
     gcc
-    cargo
     tdesktop
     tmux
     go
     ncdu
     vlc
-    audacity
+    vulkan-tools
+    vulkan-loader
+    vulkan-validation-layers
   ];
   environment.variables.EDITOR = "nvim";
 
