@@ -122,6 +122,7 @@
     git
     vscode
     cachix
+    mattermost-desktop
     htop
     unzip
     gotop
