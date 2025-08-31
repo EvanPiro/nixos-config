@@ -4,7 +4,7 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     mypkgs.url = "github:EvanPiro/mypkgs";
     nixvim.url = "github:EvanPiro/nixvim";
-    home-manager.url = github:nix-community/home-manager;
+    home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
   outputs = {

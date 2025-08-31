@@ -9,6 +9,7 @@
 }: {
   services.xserver = {
     videoDrivers = ["nvidia" "amdgpu"]; # Both AMD and Nvidia drivers
+
   };
 
   hardware.opengl = {
@@ -78,6 +79,14 @@
     kernelPackages = pkgs.linuxPackages_latest;
   };
 
+
+  boot.blacklistedKernelModules = [
+    "dvb_usb_rtl28xxu"
+    "rtl2832"
+    "rtl2830"
+  ];
+
+
   networking = {
     hostName = "tower";
     useDHCP = false;
@@ -95,6 +104,8 @@
       displayManager.gdm.enable = true;
       desktopManager.gnome.enable = true;
       libinput.enable = true;
+      autoRepeatDelay = 100;
+      autoRepeatInterval = 10;
     };
     tailscale.enable = true;
     openssh.enable = true;
@@ -136,6 +147,8 @@
     vulkan-tools
     vulkan-loader
     vulkan-validation-layers
+    rtl-sdr
+    code-cursor
   ];
   environment.variables.EDITOR = "nvim";
 
